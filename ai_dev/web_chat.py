@@ -9,7 +9,7 @@ st.caption("由 Streamlit + DeepSeek 驱动")
 
 # 2. 初始化客户端 (建议从环境变量读取，这里先硬编码方便测试)
 # ⚠️ 实际部署时请不要把 Key 直接写在代码里上传到 GitHub
-api_key = "sk-173691ada6b440739f8a20d8ca47929a"
+api_key = ""
 base_url = "https://api.deepseek.com"
 
 client = OpenAI(api_key=api_key, base_url=base_url)

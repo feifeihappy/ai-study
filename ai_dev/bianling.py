@@ -45,3 +45,46 @@ print("西瓜" in fruits)    # 判断是否存在 (返回 True/False)
 # 🔄 遍历列表 (循环)
 for fruit in fruits:
     print(f"我喜欢吃 {fruit}")
+
+
+
+
+
+
+
+# 🗄️ 创建字典 (用花括号 {}，格式是 "键": 值)
+user = {
+    "name": "Tony Stark",
+    "age": 45,
+    "city": "New York",
+    "skills": ["Engineering", "Fighting"] # 值也可以是列表！
+}
+
+# 🔑 访问值 (通过键)
+print(user["name"])   # 输出: Tony Stark
+print(user["city"])   # 输出: New York
+
+# ⚠️ 安全访问 (如果键不存在，不会报错，而是返回 None 或默认值)
+print(user.get("email"))           # 输出: None
+print(user.get("email", "无邮箱")) # 输出: 无邮箱 (提供了默认值)
+
+# ✏️ 修改或添加
+user["age"] = 46                   # 修改已有的
+user["email"] = "tony@stark.com"   # 添加新的键值对
+
+# ❌ 删除
+del user["city"]                   # 删除 "city" 这一项
+
+# 🔑 获取所有键或值
+print(user.keys())   #  dict_keys(['name', 'age', 'skills', 'email'])
+print(user.values()) #  dict_values(['Tony Stark', 46, ...])
+
+# 🔄 遍历字典
+for key, value in user.items():
+    print(f"{key}: {value}")
+
+
+
+
+
+

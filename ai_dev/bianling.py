@@ -85,6 +85,38 @@ for key, value in user.items():
 
 
 
+# 1. 创建一个空列表，用来存多个用户
+users_db = []
+
+# 2. 创建几个用户字典
+user1 = {"id": 1, "name": "Alice", "score": 95}
+user2 = {"id": 2, "name": "Bob", "score": 88}
+user3 = {"id": 3, "name": "Charlie", "score": 72}
+
+# 3. 把用户加入列表 (列表里装字典)
+users_db.append(user1)
+users_db.append(user2)
+users_db.append(user3)
+
+# 4. 任务：找出所有分数大于 90 的用户名字
+print("🏆 高分榜 (>90分):")
+for user in users_db:
+    # user 现在是列表里的一个字典
+    if user["score"] > 90:
+        print(f"- {user['name']} (得分: {user['score']})")
+
+# 5. 任务：给 Bob 加分
+for user in users_db:
+    if user["name"] == "Bob":
+        user["score"] += 5  # 直接修改字典里的值
+        print(f"\n✅ {user['name']} 加分成功！新分数: {user['score']}")
+
+# 6. 查看最终结果
+print("\n📋 最终名单:")
+for user in users_db:
+    print(user)
+
+
 
 
 

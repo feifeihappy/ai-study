@@ -117,6 +117,16 @@ for user in users_db:
     print(user)
 
 
+data = {
+    "colors": ["red", "green", "blue"],
+    "count": 3
+}
 
+print(data["colors"][1])
+# 列表上加上yellow
+data["colors"].append("yellow")
+for color in data["colors"]:
+    print(f"我喜欢{color}")
 
-
+data["count"] = data["count"] + 1
+print(data["count"])

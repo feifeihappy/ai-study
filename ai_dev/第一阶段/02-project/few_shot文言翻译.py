@@ -40,5 +40,40 @@ prompt = f"""
 你回复："""
 
 print("🚀 发送请求...\n")
+# response = llm.invoke(prompt)
+# print(response.content)
+
+#
+#
+# # question = "一个球拍和一个球一共1.10美元，球拍比球贵1美元，问球多少钱？"
+# question = "甲、乙、丙三个人排队。已知：甲不在第一个位置，乙不在最后一个位置，丙在甲的后面。问三个人的顺序是什么？"
+#
+# # 方法1：直接问，不给提示
+# prompt1 = f"请回答：{question}"
+# print("🚀 方法1：直接问\n")
+# response1 = llm.invoke(prompt1)
+# print(response1.content)
+# print("\n" + "="*40 + "\n")
+#
+# # 方法2：用 CoT，让它一步步思考
+# prompt2 = f"""
+# 请回答：{question}
+#
+# 请一步步思考，写出你的推理过程，最后再给出答案。
+# """
+# print("🚀 方法2：用思维链\n")
+# response2 = llm.invoke(prompt2)
+# print(response2.content)
+
+
+question = "甲、乙、丙三个人排队。已知：甲不在第一个位置，乙不在最后一个位置，丙在甲的后面。问三个人的顺序是什么？"
+
+prompt = f"""
+请回答：{question}
+
+请一步步思考，写出你的推理过程，最后再给出答案。
+"""
+
+print("🚀 开始推理...\n")
 response = llm.invoke(prompt)
 print(response.content)

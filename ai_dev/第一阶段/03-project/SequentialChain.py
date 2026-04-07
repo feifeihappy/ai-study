@@ -22,6 +22,8 @@ translate_prompt = ChatPromptTemplate.from_template("请将以下文言文翻译
 
 # 步骤 B: 润色
 polish_prompt = ChatPromptTemplate.from_template("请润色以下白话文，使其更具学术风格，用词更精准：\n{input_text}")
+# 摘要
+abstract_prompt = ChatPromptTemplate.from_template("在结尾加一句摘要，总结这段历史：\n{input_text}")
 
 # 步骤 C: 格式化
 format_prompt = ChatPromptTemplate.from_template(
@@ -29,7 +31,7 @@ format_prompt = ChatPromptTemplate.from_template(
 
 # 定义链条
 # 流程：翻译Prompt -> 模型 -> 润色Prompt -> 模型 -> 格式化Prompt -> 模型 -> 输出字符串
-chain = (translate_prompt | llm | StrOutputParser() | polish_prompt | llm | StrOutputParser() | format_prompt | llm | StrOutputParser())
+chain = (translate_prompt | llm | StrOutputParser() | polish_prompt | llm | StrOutputParser()|abstract_prompt | llm | StrOutputParser() | format_prompt | llm | StrOutputParser())
 
 original_text = "五月，策命￼安汉公莽以九锡，莽稽首再拜，受绿韨￼，衮冕￼、衣裳￼，玚琫￼、玚珌￼，句履￼，鸾路￼、乘马￼，龙旂九旒￼，皮弁￼、素积￼，戎路￼、乘马￼，彤￼弓矢、卢￼弓矢，左建朱钺￼，右建金戚￼，甲、胄￼一具，秬鬯￼二卣￼，圭瓒￼二，九命￼青玉珪二，朱户￼，纳陛￼，署￼宗官￼、祝官￼、卜官￼、史官￼，虎贲￼三百人。"
 print("🚀 开始流水线处理...")
